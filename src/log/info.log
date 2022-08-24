@@ -1,0 +1,255 @@
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\model\\db.js:32:42\n\n  29     name: 'Elsa Prisma'\n  30   }\n  31 }\n→ 32 const createUser = await prisma.user.create(\n  Unique constraint failed on the fields: (`email`)"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findMany()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\model\\db.js:32:42\n\n  29     name: 'Elsa Prisma'\n  30   }\n  31 }\n→ 32 const createUser = await prisma.user.findMany({\n       data: {\n       ~~~~\n         email: 'elsa@prisma.io',\n         name: 'Elsa Prisma'\n       }\n     })\n\nUnknown arg `data` in data for type User. Did you mean `take`? Available args:\ntype findManyUser {\n  where?: UserWhereInput\n  orderBy?: List<UserOrderByWithRelationInput> | UserOrderByWithRelationInput\n  cursor?: UserWhereUniqueInput\n  take?: Int\n  skip?: Int\n  distinct?: List<UserScalarFieldEnum>\n}\n\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findMany()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\model\\db.js:32:42\n\n  29     name: 'Elsa Prisma'\n  30   }\n  31 }\n→ 32 const createUser = await prisma.user.findMany({\n       user: {\n       ~~~~\n         email: 'elsa@prisma.io',\n         name: 'Elsa Prisma'\n       }\n     })\n\nUnknown arg `user` in user for type User. Did you mean `where`? Available args:\ntype findManyUser {\n  where?: UserWhereInput\n  orderBy?: List<UserOrderByWithRelationInput> | UserOrderByWithRelationInput\n  cursor?: UserWhereUniqueInput\n  take?: Int\n  skip?: Int\n  distinct?: List<UserScalarFieldEnum>\n}\n\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findMany()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\model\\db.js:32:42\n\n  29     name: 'Elsa Prisma'\n  30   }\n  31 }\n→ 32 const createUser = await prisma.user.findMany({\n       email: 'elsa@prisma.io'\n       ~~~~~\n     })\n\nUnknown arg `email` in email for type User. Did you mean `take`? Available args:\ntype findManyUser {\n  where?: UserWhereInput\n  orderBy?: List<UserOrderByWithRelationInput> | UserOrderByWithRelationInput\n  cursor?: UserWhereUniqueInput\n  take?: Int\n  skip?: Int\n  distinct?: List<UserScalarFieldEnum>\n}\n\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:24:48\n\n  21 .then(async conn=>{\n  22     const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  23     if(checkUser.length) res.send(\"This user already exist...\");\n→ 24     const newUser =  await prisma.user.create({\n           name: 'amirhosein',\n           ~~~~\n           email: 'amir125@gmail.com',\n           ~~~~~\n           posts: {\n           ~~~~~\n             title: 'hello prisma',\n             content: 'this is a first post about prisma. im realy excited about it :))',\n             author: 'amirhosein'\n           },\n         + data: UserCreateInput | UserUncheckedCreateInput\n         })\n\nUnknown arg `name` in name for type User. Did you mean `data`?\nUnknown arg `email` in email for type User. Did you mean `data`?\nUnknown arg `posts` in posts for type User. Did you mean `data`?\nArgument data is missing.\n\nNote: Lines with + are required\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:24:48\n\n  21 .then(async ()=>{\n  22     const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  23     if(checkUser.length) res.send(\"This user already exist...\");\n→ 24     const newUser =  await prisma.user.create({\n           data: {\n             name: 'amirhosein',\n             email: 'amir125@gmail.com',\n             posts: {\n               title: 'hello prisma',\n               ~~~~~\n               content: 'this is a first post about prisma. im realy excited about it :))',\n               ~~~~~~~\n               author: 'amirhosein'\n               ~~~~~~\n             }\n           }\n         })\n\nUnknown arg `title` in data.posts.title for type PostCreateNestedManyWithoutAuthorInput. Did you mean `create`? Available args:\ntype PostCreateNestedManyWithoutAuthorInput {\n  create?: PostCreateWithoutAuthorInput | List<PostCreateWithoutAuthorInput> | PostUncheckedCreateWithoutAuthorInput | List<PostUncheckedCreateWithoutAuthorInput>\n  connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | List<PostCreateOrConnectWithoutAuthorInput>\n  createMany?: PostCreateManyAuthorInputEnvelope\n  connect?: PostWhereUniqueInput | List<PostWhereUniqueInput>\n}\nUnknown arg `content` in data.posts.content for type PostCreateNestedManyWithoutAuthorInput. Did you mean `connect`? Available args:\ntype PostCreateNestedManyWithoutAuthorInput {\n  create?: PostCreateWithoutAuthorInput | List<PostCreateWithoutAuthorInput> | PostUncheckedCreateWithoutAuthorInput | List<PostUncheckedCreateWithoutAuthorInput>\n  connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | List<PostCreateOrConnectWithoutAuthorInput>\n  createMany?: PostCreateManyAuthorInputEnvelope\n  connect?: PostWhereUniqueInput | List<PostWhereUniqueInput>\n}\nUnknown arg `author` in data.posts.author for type PostCreateNestedManyWithoutAuthorInput. Did you mean `create`? Available args:\ntype PostCreateNestedManyWithoutAuthorInput {\n  create?: PostCreateWithoutAuthorInput | List<PostCreateWithoutAuthorInput> | PostUncheckedCreateWithoutAuthorInput | List<PostUncheckedCreateWithoutAuthorInput>\n  connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | List<PostCreateOrConnectWithoutAuthorInput>\n  createMany?: PostCreateManyAuthorInputEnvelope\n  connect?: PostWhereUniqueInput | List<PostWhereUniqueInput>\n}\n\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:24:48\n\n  21 .then(async ()=>{\n  22     const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  23     if(checkUser.length) res.send(\"This user already exist...\");\n→ 24     const newUser =  await prisma.user.create({\n           data: {\n             name: 'amirhosein',\n             email: 'amir125@gmail.com',\n             posts: [\n               {\n                 title: 'hello prisma',\n                 content: 'this is a first post about prisma. im realy excited about it :))',\n                 author: 'amirhosein'\n               }\n             ]\n             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n           }\n         })\n\nArgument posts: Got invalid value \n[\n  {\n    title: 'hello prisma',\n    content: 'this is a first post about prisma. im realy excited about it :))',\n    author: 'amirhosein'\n  }\n]\non prisma.createOneUser. Provided List<Json>, expected PostCreateNestedManyWithoutAuthorInput:\ntype PostCreateNestedManyWithoutAuthorInput {\n  create?: PostCreateWithoutAuthorInput | List<PostCreateWithoutAuthorInput> | PostUncheckedCreateWithoutAuthorInput | List<PostUncheckedCreateWithoutAuthorInput>\n  connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | List<PostCreateOrConnectWithoutAuthorInput>\n  createMany?: PostCreateManyAuthorInputEnvelope\n  connect?: PostWhereUniqueInput | List<PostWhereUniqueInput>\n}\n\n"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:24:48\n\n  21 .then(async ()=>{\n  22     const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  23     if(checkUser.length) res.send(\"This user already exist...\");\n→ 24     const newUser =  await prisma.user.create({\n           data: {\n             name: 'amirhosein',\n             email: 'amir125@gmail.com',\n             posts: {\n               title: 'hello prisma',\n               ~~~~~\n               content: 'this is a first post about prisma. im realy excited about it :))',\n               ~~~~~~~\n               author: 'amirhosein'\n               ~~~~~~\n             }\n           }\n         })\n\nUnknown arg `title` in data.posts.title for type PostCreateNestedManyWithoutAuthorInput. Did you mean `create`? Available args:\ntype PostCreateNestedManyWithoutAuthorInput {\n  create?: PostCreateWithoutAuthorInput | List<PostCreateWithoutAuthorInput> | PostUncheckedCreateWithoutAuthorInput | List<PostUncheckedCreateWithoutAuthorInput>\n  connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | List<PostCreateOrConnectWithoutAuthorInput>\n  createMany?: PostCreateManyAuthorInputEnvelope\n  connect?: PostWhereUniqueInput | List<PostWhereUniqueInput>\n}\nUnknown arg `content` in data.posts.content for type PostCreateNestedManyWithoutAuthorInput. Did you mean `connect`? Available args:\ntype PostCreateNestedManyWithoutAuthorInput {\n  create?: PostCreateWithoutAuthorInput | List<PostCreateWithoutAuthorInput> | PostUncheckedCreateWithoutAuthorInput | List<PostUncheckedCreateWithoutAuthorInput>\n  connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | List<PostCreateOrConnectWithoutAuthorInput>\n  createMany?: PostCreateManyAuthorInputEnvelope\n  connect?: PostWhereUniqueInput | List<PostWhereUniqueInput>\n}\nUnknown arg `author` in data.posts.author for type PostCreateNestedManyWithoutAuthorInput. Did you mean `create`? Available args:\ntype PostCreateNestedManyWithoutAuthorInput {\n  create?: PostCreateWithoutAuthorInput | List<PostCreateWithoutAuthorInput> | PostUncheckedCreateWithoutAuthorInput | List<PostUncheckedCreateWithoutAuthorInput>\n  connectOrCreate?: PostCreateOrConnectWithoutAuthorInput | List<PostCreateOrConnectWithoutAuthorInput>\n  createMany?: PostCreateManyAuthorInputEnvelope\n  connect?: PostWhereUniqueInput | List<PostWhereUniqueInput>\n}\n\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:24:48\n\n  21 .then(async ()=>{\n  22     const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  23     if(checkUser.length) res.send(\"This user already exist...\");\n→ 24     const newUser =  await prisma.user.create(\n  Unique constraint failed on the fields: (`email`)"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:24:48\n\n  21 .then(async ()=>{\n  22     const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  23     if(checkUser.length) res.send(\"This user already exist...\");\n→ 24     const newUser =  await prisma.user.create({\n           data: {\n             name: 'alireza',\n             email: 'aalirezai@gmail.com',\n             posts: {\n               create: {\n                 title: 'start prisma',\n                 content: 'this is the first time i run prisma. so excited about it.',\n                 author: 'amirhosein'\n                 ~~~~~~\n               }\n             }\n           }\n         })\n\nUnknown arg `author` in data.posts.create.author for type PostCreateWithoutAuthorInput. Did you mean `title`? Available args:\ntype PostCreateWithoutAuthorInput {\n  createAt?: DateTime\n  updateAt?: DateTime\n  title: String\n  content?: String | Null\n  published?: Boolean\n}\n\n"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:24:48\n\n  21 .then(async ()=>{\n  22     const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  23     if(checkUser.length) res.send(\"This user already exist...\");\n→ 24     const newUser =  await prisma.user.create({\n           data: {\n             name: 'alireza',\n             email: 'aalirezai@gmail.com',\n             posts: {\n               create: {\n                 title: 'start prisma',\n                 content: 'this is the first time i run prisma. so excited about it.',\n                 author: {\n                 ~~~~~~\n                   name: 'amirhosein',\n                   email: 'amir125@gmail.com'\n                 }\n               }\n             }\n           }\n         })\n\nUnknown arg `author` in data.posts.create.author for type PostCreateWithoutAuthorInput. Did you mean `title`? Available args:\ntype PostCreateWithoutAuthorInput {\n  createAt?: DateTime\n  updateAt?: DateTime\n  title: String\n  content?: String | Null\n  published?: Boolean\n}\n\n"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:24:48\n\n  21 .then(async ()=>{\n  22     const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  23     if(checkUser.length) res.send(\"This user already exist...\");\n→ 24     const newUser =  await prisma.user.create({\n           data: {\n             name: 'alireza',\n             email: 'aalirezai@gmail.com',\n             posts: {\n               create: {\n                 title: 'start prisma',\n                 content: 'this is the first time i run prisma. so excited about it.',\n                 author: {\n                 ~~~~~~\n                   create: {\n                     name: 'amirhosein',\n                     email: 'amir125@gmail.com'\n                   }\n                 }\n               }\n             }\n           }\n         })\n\nUnknown arg `author` in data.posts.create.author for type PostCreateWithoutAuthorInput. Did you mean `title`? Available args:\ntype PostCreateWithoutAuthorInput {\n  createAt?: DateTime\n  updateAt?: DateTime\n  title: String\n  content?: String | Null\n  published?: Boolean\n}\n\n"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.create()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:26:48\n\n  23 const checkUser = await prisma.user.findMany({where : {email : req.body.user.email}});\n  24 if(checkUser.length) res.send(\"This user already exist...\");\n  25 \n→ 26 const newUser =  await prisma.user.create(\n  Unique constraint failed on the fields: (`email`)"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError [ERR_INVALID_ARG_TYPE]: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received function getUser"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError [ERR_INVALID_ARG_TYPE]: The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received function getUser"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: TypeError: Cannot read properties of undefined (reading 'email')"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.update()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:75:51\n\n   72 const getUser = await prisma.user.findMany({where: {email: email}});\n   73 if(getUser) res.status(404).send(\"There is no user with this email\");\n   74 \n→  75 const updatedUser = await prisma.user.update({\n        where: {\n      ?   email?: String,\n      ?   id?: Int\n        },\n        data: {\n          name: undefined\n        }\n      })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: There is no user with this email"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.update()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:75:51\n\n   72 const getUser = await prisma.user.findMany({where: {email: email}});\n   73 if(getUser) res.status(404).send(\"There is no user with this email\"+getUser);\n   74 \n→  75 const updatedUser = await prisma.user.update({\n        where: {\n      ?   email?: String,\n      ?   id?: Int\n        },\n        data: {\n          name: undefined\n        }\n      })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.update()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:75:51\n\n   72 const getUser = await prisma.user.findMany({where: {email: email}});\n   73 if(getUser.length == 0) res.status(404).send(\"There is no user with this email\");\n   74 \n→  75 const updatedUser = await prisma.user.update({\n        where: {\n      ?   email?: String,\n      ?   id?: Int\n        },\n        data: {\n          name: undefined\n        }\n      })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.update()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:76:51\n\n   73 console.log(getUser);\n   74 if(getUser.length ) res.status(404).send(\"There is no user with this email\");\n   75 \n→  76 const updatedUser = await prisma.user.update({\n        where: {\n      ?   email?: String,\n      ?   id?: Int\n        },\n        data: {\n          name: undefined\n        }\n      })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.update()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:76:51\n\n   73 console.log(getUser);\n   74 if(getUser.length < 1 ) res.status(404).send(\"There is no user with this email\");\n   75 \n→  76 const updatedUser = await prisma.user.update({\n        where: {\n      ?   email?: String,\n      ?   id?: Int\n        },\n        data: {\n          name: undefined\n        }\n      })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.update()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:76:51\n\n   73 console.log(getUser);\n   74 if(getUser.length < 1 ) res.status(404).send(\"There is no user with this email\");\n   75 \n→  76 const updatedUser = await prisma.user.update({\n        where: {\n      ?   email?: String,\n      ?   id?: Int\n        },\n        data: {\n          name: undefined\n        }\n      })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:72:47\n\n   69 await prisma.$connect()\n   70     .then(async ()=>{\n   71 \n→  72         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.update()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:76:51\n\n   73 console.log(getUser);\n   74 if(getUser.length < 1 ) res.status(404).send(\"There is no user with this email\");\n   75 \n→  76 const updatedUser = await prisma.user.update({\n        where: {\n      ?   email?: String,\n      ?   id?: Int\n        },\n        data: {\n          name: undefined\n        }\n      })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.update()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:76:51\n\n   73 console.log(getUser);\n   74 if(getUser.length < 1 ) res.status(404).send(\"There is no user with this email\");\n   75 \n→  76 const updatedUser = await prisma.user.update({\n        where: {\n      ?   email?: String,\n      ?   id?: Int\n        },\n        data: {\n          name: undefined\n        }\n      })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:72:47\n\n   69 await prisma.$connect()\n   70     .then(async ()=>{\n   71 \n→  72         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:72:47\n\n   69 await prisma.$connect()\n   70     .then(async ()=>{\n   71 \n→  72         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:72:47\n\n   69 await prisma.$connect()\n   70     .then(async ()=>{\n   71 \n→  72         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:72:47\n\n   69 await prisma.$connect()\n   70     .then(async ()=>{\n   71 \n→  72         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:73:47\n\n   70 await prisma.$connect()\n   71     .then(async ()=>{\n   72 \n→  73         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:73:47\n\n   70 await prisma.$connect()\n   71     .then(async ()=>{\n   72 \n→  73         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:73:47\n\n   70 await prisma.$connect()\n   71     .then(async ()=>{\n   72 \n→  73         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:73:47\n\n   70 await prisma.$connect()\n   71     .then(async ()=>{\n   72 \n→  73         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: ReferenceError: email is not defined"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:72:47\n\n   69 await prisma.$connect()\n   70     .then(async ()=>{\n   71 \n→  72         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"error","message":"Error: Error: \nInvalid `prisma.user.findUnique()` invocation in\nC:\\Users\\A.R\\Desktop\\Prisma\\src\\controller\\controller.js:72:47\n\n   69 await prisma.$connect()\n   70     .then(async ()=>{\n   71 \n→  72         const getUser = await prisma.user.findUnique({\n                where: {\n              ?   email?: String,\n              ?   id?: Int\n                }\n              })\n\nArgument where of type UserWhereUniqueInput needs at least one argument. Available args are listed in green.\n\nNote: Lines with ? are optional.\n"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
+{"level":"info","message":"This app is started at port 3000"}
